@@ -1,0 +1,29 @@
+.sparkling {
+    animation: sparkle 1s infinite;
+}
+@keyframes sparkle {
+    0%, 100% { opacity: 0.5; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.2); }
+}
+.floating {
+    animation: float 3s ease-in-out infinite;
+}
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+.heartbeat {
+    animation: heartbeat 1.5s ease-in-out infinite;
+}
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+.teddy-rain {
+    position: absolute;
+    top: -50px;
+    animation: fall linear forwards;
+}
+@keyframes fall {
+    to { transform: translateY(100vh); }
+}
