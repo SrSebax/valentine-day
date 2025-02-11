@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Feliz San Valentín</title>
-    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="css/index.css">
@@ -19,29 +19,34 @@
         </div>
 
         <!-- Main Teddy -->
-        <div id="mainTeddy" class="w-64 h-64 mx-auto mb-8 cursor-pointer floating kawaii-shadow">
+        <div id="mainDuck" class="w-64 h-64 mx-auto mb-8 cursor-pointer floating kawaii-shadow">
             <svg viewBox="0 0 200 200" class="w-full h-full">
-                <!-- Teddy Body -->
+                <!-- Duck Body -->
                 <defs>
-                    <linearGradient id="teddyGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" style="stop-color:#FFB6C1"/>
-                        <stop offset="100%" style="stop-color:#FFC0CB"/>
+                    <linearGradient id="duckGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#FFEB3B"/>
+                        <stop offset="100%" style="stop-color:#FFC107"/>
                     </linearGradient>
-                    <filter id="fluff">
-                        <feGaussianBlur in="SourceGraphic" stdDeviation="2"/>
-                    </filter>
                 </defs>
-                <circle cx="100" cy="100" r="80" fill="url(#teddyGradient)" filter="url(#fluff)"/>
-                <circle cx="100" cy="110" r="60" fill="#FFD1DC" filter="url(#fluff)"/>
-                <circle cx="75" cy="80" r="8" fill="#4A4A4A"/>
-                <circle cx="75" cy="78" r="3" fill="white"/>
-                <circle cx="125" cy="80" r="8" fill="#4A4A4A"/>
-                <circle cx="125" cy="78" r="3" fill="white"/>
-                <circle cx="100" cy="95" r="10" fill="#FF9AAC"/>
-                <path d="M 85 110 Q 100 120 115 110" stroke="#4A4A4A" fill="none" stroke-width="3"/>
+                <circle cx="100" cy="120" r="60" fill="url(#duckGradient)"/>
+                <circle cx="100" cy="100" r="50" fill="#FFEB3B"/>
+                
+                <!-- Duck Eyes -->
+                <circle cx="80" cy="90" r="8" fill="#4A4A4A"/>
+                <circle cx="80" cy="88" r="3" fill="white"/>
+                <circle cx="120" cy="90" r="8" fill="#4A4A4A"/>
+                <circle cx="120" cy="88" r="3" fill="white"/>
+                
+                <!-- Duck Beak -->
+                <ellipse cx="100" cy="110" rx="12" ry="8" fill="#FF9800"/>
+                <path d="M 88 110 Q 100 120 112 110" stroke="#E65100" fill="none" stroke-width="2"/>
+                
+                <!-- Duck Wings -->
+                <path d="M 60 120 Q 40 100 50 140" stroke="#FFC107" fill="#FFC107" stroke-width="3"/>
+                <path d="M 140 120 Q 160 100 150 140" stroke="#FFC107" fill="#FFC107" stroke-width="3"/>
             </svg>
         </div>
-
+        
         <!-- Next Button -->
         <button id="nextButton" class="glass-effect text-pink-500 font-bold py-4 px-10 rounded-full text-xl transition-all duration-300 hover:scale-110 hover:shadow-lg hover:text-pink-600 heartbeat">
         </button>

@@ -17,12 +17,12 @@
 setInterval(createTeddyRain, 400);
 
 // Main teddy interaction with sparkle effect
-const mainTeddy = document.getElementById('mainTeddy');
-mainTeddy.addEventListener('click', () => {
-    mainTeddy.classList.add('scale-125');
+const mainDuck = document.getElementById('mainDuck');
+mainDuck.addEventListener('click', () => {
+    mainDuck.classList.add('scale-125');
     createSparkles();
     setTimeout(() => {
-        mainTeddy.classList.remove('scale-125');
+        mainDuck.classList.remove('scale-125');
     }, 200);
 });
 
@@ -35,7 +35,7 @@ function createSparkles() {
         sparkle.style.top = '50%';
         sparkle.style.transform = `translate(-50%, -50%) rotate(${Math.random() * 360}deg)`;
         sparkle.style.animation = 'float 1s ease-out forwards';
-        mainTeddy.appendChild(sparkle);
+        mainDuck.appendChild(sparkle);
         setTimeout(() => sparkle.remove(), 1000);
     }
 }
