@@ -66,6 +66,10 @@
         document.getElementById('nextButton').textContent = wordings.nextButtonText;
         document.getElementById('surpriseTitle').textContent = wordings.surpriseTitle;
         document.getElementById('surpriseMessage').textContent = wordings.surpriseMessage;
+
+        document.getElementById('nextButton').addEventListener('click', () => {
+            console.log('Next button clicked');
+        });
     </script>
     <script src="/js/index.js" type="module"></script>
 </body>
