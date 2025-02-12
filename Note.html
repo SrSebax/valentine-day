@@ -11,49 +11,53 @@
     <link rel="stylesheet" href="css/note.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="min-h-screen magical-gradient overflow-hidden flex items-center justify-center">
-    <div class="container mx-auto px-2 py-4 relative">
-        <!-- Content Container -->
-        <div class="max-w-4xl mx-auto">
-            <!-- GIF Display -->
-            <div id="gifContainer" class="glass-effect p-6 mb-6 text-center flex justify-between items-center">
-                <div class="gif-container mx-auto w-full md:w-1/2">
-                    <img src="/api/placeholder/300/300" alt="" id="gifDisplay" class="w-full h-auto">
-                </div>
-                <div id="wishContainer" class="glass-effect p-6 text-center ml-6">
-                    <p id="wishText" class="text-xl md:text-2xl lg:text-3xl text-pink-600 font-semibold"></p>
-                </div>
+<body class="min-h-screen magical-gradient flex items-center justify-center">
+    <div class="container mx-auto px-4 py-6 max-w-3xl text-center">
+        <h1 id="mainTitle" class="text-4xl md:text-5xl lg:text-6xl text-pink-600 font-bold mb-6">Para mi mujer Anita</h1>
+        <h2 id="subTitle" class="text-2xl md:text-3xl lg:text-4xl text-pink-500 font-semibold mb-12">Att. Tu bebesiwi</h2>
+        
+        <!-- GIF & Wish Container -->
+        <div id="gifContainer" class="glass-effect p-4 mb-6 flex flex-col md:flex-row items-center text-center md:text-left">
+            <div class="w-full md:w-3/5">
+                <img src="/api/placeholder/300/300" alt="" id="gifDisplay" class="w-full max-w-xs mx-auto rounded-lg">
             </div>
-
-            <!-- Love Note Display -->
-            <div id="noteContainer" class="glass-effect p-6 mb-6 text-center">
+            <div id="wishContainer" class="glass-effect p-4 m-4">
                 <p id="noteText" class="text-lg md:text-xl lg:text-2xl text-pink-600 font-semibold"></p>
             </div>
+        </div>
 
-            <!-- Navigation -->
-            <div class="text-center flex justify-center gap-8">
-                <button id="nextButton" class="glass-effect px-8 py-4 text-lg md:text-xl font-bold text-pink-500 rounded-full transition-all duration-300 hover:scale-110 hover:shadow-lg group beating">
-                    <span class="inline-block transition-transform group-hover:translate-x-2"></span>
-                </button>
-                <button id="nextPageButton" class="glass-effect px-8 py-4 text-lg md:text-xl font-bold text-pink-500 rounded-full transition-all duration-300 hover:scale-110 hover:shadow-lg group beating hidden">
-                    <span class="inline-block transition-transform group-hover:translate-x-2"></span>
-                </button>
-            </div>
+        <!-- Love Note Display -->
+        <div id="noteContainer" class="glass-effect p-4 mb-6 text-center">
+            <p id="wishText" class="text-base md:text-lg lg:text-xl text-pink-600 font-semibold"></p>
+        </div>
 
-            <!-- Progress Indicator -->
-            <div class="mt-6 flex justify-center gap-2">
-                <div id="progressDots" class="flex space-x-2"></div>
-            </div>
+        <!-- Navigation Buttons -->
+        <div class="flex flex-col sm:flex-row justify-center gap-10">
+            <button id="nextButton" class="glass-effect px-6 py-3 text-base sm:text-lg font-bold text-pink-500 rounded-full transition-all duration-300 hover:scale-110 hover:shadow-lg group beating">
+                <span class="inline-block transition-transform group-hover:translate-x-2"></span>
+            </button>
+            <button id="nextPageButton" class="glass-effect px-6 py-3 text-base sm:text-lg font-bold text-pink-500 rounded-full transition-all duration-300 hover:scale-110 hover:shadow-lg group beating hidden">
+                <span class="inline-block transition-transform group-hover:translate-x-2"></span>
+            </button>
+        </div>
+
+        <!-- Progress Dots -->
+        <div class="mt-6 flex justify-center gap-2">
+            <div id="progressDots" class="flex space-x-2"></div>
         </div>
     </div>
+
     <script src="/js/note.js" type="module"></script>
     <script type="module">
         import { wordings } from '/js/wordings.js';
-
         document.getElementById('gifDisplay').alt = wordings.gifAltText;
         document.getElementById('wishText').textContent = wordings.wishText;
         document.getElementById('nextButton').querySelector('span').textContent = wordings.nextButtonText;
         document.getElementById('nextPageButton').querySelector('span').textContent = wordings.nextPageButtonText;
+
+        // GSAP Animations
+        gsap.from("#mainTitle", { duration: 2, opacity: 0, y: -50, ease: "bounce" });
+        gsap.from("#subTitle", { duration: 2, opacity: 0, y: 50, ease: "bounce", delay: 0.5 });
     </script>
 </body>
 </html>
