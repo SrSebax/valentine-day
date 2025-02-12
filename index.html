@@ -9,6 +9,15 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        #clickMeSign {
+            animation: blink 1s infinite;
+        }
+    </style>
 </head>
 <body class="min-h-screen gradient-bg overflow-hidden">
     <div class="relative container mx-auto px-4 py-8 text-center">
@@ -16,6 +25,11 @@
         <div class="glass-effect p-8 mb-8">
             <h1 class="text-4xl md:text-6xl font-bold mb-4 kawaii-shadow" id="welcomeTitle"></h1>
             <p class="text-xl md:text-2xl text-pink-500 kawaii-shadow" id="welcomeSubtitle"></p>
+        </div>
+
+        <!-- Click Me Sign -->
+        <div id="clickMeSign" class="absolute top-0 left-0 right-0 mx-auto text-center text-white text-2xl font-bold p-4 bg-pink-500 rounded-lg shadow-lg">
+            ¡Haz clic en patito!
         </div>
 
         <!-- Main Duck (Haz clic para reproducir música) -->
@@ -81,6 +95,7 @@
     <script>
         const audio = document.getElementById("background-audio");
         const duck = document.getElementById("mainDuck");
+        const clickMeSign = document.getElementById("clickMeSign");
         let isPlaying = false;
 
         // Configurar volumen inicial
@@ -93,26 +108,26 @@
                 audio.pause();
             }
             isPlaying = !isPlaying; // Alternar estado de reproducción
+            clickMeSign.style.display = 'none'; // Ocultar el letrero
         });
 
     </script>
 
-<script>
-    const audio = new Audio("./assets/audio/musica.mp3");
-    audio.loop = true;
+    <script>
+        const audio = new Audio("./assets/audio/musica.mp3");
+        audio.loop = true;
 
-    document.getElementById("mainDuck").addEventListener("click", () => {
-        audio.play();
-        localStorage.setItem("musicPlaying", "true"); // Guardamos el estado en localStorage
-    });
-
-    document.addEventListener("DOMContentLoaded", () => {
-        if (localStorage.getItem("musicPlaying") === "true") {
+        document.getElementById("mainDuck").addEventListener("click", () => {
             audio.play();
-        }
-    });
-</script>
+            localStorage.setItem("musicPlaying", "true"); // Guardamos el estado en localStorage
+        });
 
+        document.addEventListener("DOMContentLoaded", () => {
+            if (localStorage.getItem("musicPlaying") === "true") {
+                audio.play();
+            }
+        });
+    </script>
 
     <script src="js/index.js" type="module"></script>
 </body>
