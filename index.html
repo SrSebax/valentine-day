@@ -18,7 +18,7 @@
             <p class="text-xl md:text-2xl text-pink-500 kawaii-shadow" id="welcomeSubtitle"></p>
         </div>
 
-        <!-- Main Teddy -->
+        <!-- Main Duck (Haz clic para reproducir música) -->
         <div id="mainDuck" class="w-64 h-64 mx-auto mb-8 cursor-pointer floating kawaii-shadow">
             <svg viewBox="0 0 200 200" class="w-full h-full">
                 <!-- Duck Body -->
@@ -56,6 +56,12 @@
             <p class="text-3xl font-bold mb-4" id="surpriseTitle"></p>
             <p class="text-xl text-pink-500" id="surpriseMessage"></p>
         </div>
+
+        <!-- Audio en segundo plano -->
+        <audio id="background-audio" loop>
+            <source src="./assets/audio/musica.mp3" type="audio/mp3">
+            Tu navegador no soporta audio HTML5.
+        </audio>
     </div>
 
     <script type="module">
@@ -71,6 +77,43 @@
             console.log('Next button clicked');
         });
     </script>
+
+    <script>
+        const audio = document.getElementById("background-audio");
+        const duck = document.getElementById("mainDuck");
+        let isPlaying = false;
+
+        // Configurar volumen inicial
+        audio.volume = 0.5;
+
+        duck.addEventListener("click", () => {
+            if (!isPlaying) {
+                audio.play().catch(error => console.log("Error al reproducir audio:", error));
+            } else {
+                audio.pause();
+            }
+            isPlaying = !isPlaying; // Alternar estado de reproducción
+        });
+
+    </script>
+
+<script>
+    const audio = new Audio("./assets/audio/musica.mp3");
+    audio.loop = true;
+
+    document.getElementById("mainDuck").addEventListener("click", () => {
+        audio.play();
+        localStorage.setItem("musicPlaying", "true"); // Guardamos el estado en localStorage
+    });
+
+    document.addEventListener("DOMContentLoaded", () => {
+        if (localStorage.getItem("musicPlaying") === "true") {
+            audio.play();
+        }
+    });
+</script>
+
+
     <script src="js/index.js" type="module"></script>
 </body>
 </html>

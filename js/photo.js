@@ -1,0 +1,3 @@
+let mensaje = `Mi amor, Desde que llegaste a mi vida, todo tiene más color, más sentido y más amor. No hay día en que no agradezca por tenerte a mi lado, por tu sonrisa que ilumina mis días y por cada pequeño detalle que hace que me enamore más de ti. Eres mi paz en los días difíciles y mi alegría en los días buenos. Contigo quiero compartir cada instante, cada sueño, cada locura, porque no hay mejor compañía que tú. En este San Valentín, quiero recordarte lo increíble que eres y lo mucho que significas para mí. No hay palabras suficientes para describir cuánto te amo, pero espero que cada mirada, cada abrazo y cada momento juntos te lo demuestren. Te amo con todo mi corazón ❤️`;
+
+document.getElementById("text").innerHTML = mensaje.repeat(30);

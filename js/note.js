@@ -119,7 +119,7 @@ document.getElementById("nextPageButton").addEventListener("click", () => {
   gsap.to("body", {
     opacity: 0,
     duration: 1,
-    onComplete: () => (window.location.href = "kiss.html"),
+    onComplete: () => (window.location.href = "Photo.html"),
   });
 });
 
