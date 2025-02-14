@@ -1,4 +1,4 @@
-import { notes, gifs } from './wordings.js';
+import { notes, gifs, wish } from './wordings.js';
 
 let currentIndex = 0;
 
@@ -39,6 +39,7 @@ function initialize() {
 // Update both note and GIF
 function updateContent() {
   updateNote();
+  updateWish();
   updateGIF();
   updateProgressDots();
   if (currentIndex === 4) {
@@ -46,6 +47,24 @@ function updateContent() {
   } else {
     document.getElementById("nextPageButton").classList.add("hidden");
   }
+}
+
+function updateWish() {
+  const wishText = document.getElementById("wishText");
+  gsap.to(wishText, {
+    opacity: 0,
+    y: -20,
+    duration: 0.5,
+    onComplete: () => {
+      wishText.textContent = wish[currentIndex];
+      gsap.to(wishText, {
+        opacity: 1,
+        y: 0,
+        duration: 0.5,
+        ease: "back.out",
+      });
+    },
+  });
 }
 
 // Update the love note with animation
